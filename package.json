@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/yunse0909/sass-order/issues"
   },
-  "homepage": "https://github.com/yunse0909/sass-order#readme"
+  "homepage": "https://github.com/yunse0909/sass-order#readme",
+  "devDependencies": {
+    "@types/node": "^20.11.28"
+  }
 }
