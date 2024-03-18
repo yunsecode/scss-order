@@ -1,0 +1,26 @@
+{
+  "name": "scss-order",
+  "version": "1.0.0",
+  "description": "To order scss properties",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "scss-order": "./dist/bin/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yunse0909/sass-order.git"
+  },
+  "keywords": [
+    "scss-order",
+    "scss"
+  ],
+  "author": "yunsecode",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yunse0909/sass-order/issues"
+  },
+  "homepage": "https://github.com/yunse0909/sass-order#readme"
+}
