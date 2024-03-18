@@ -2,7 +2,7 @@
   "name": "scss-order",
   "version": "1.0.0",
   "description": "To order scss properties",
-  "main": "index.js",
+  "main": "dist/src/utils/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
