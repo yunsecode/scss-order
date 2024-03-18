@@ -45,8 +45,6 @@ async function setPage(filePath:string, textToWrite: string) {
     fs.writeFile(filePath, textToWrite, (err) => {
         if (err) {
             console.error('Error writing file:', err);
-        } else {
-            console.log('File overwritten successfully.');
         }
     });
 }
