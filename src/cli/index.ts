@@ -4,6 +4,7 @@ import * as path from 'path';
 import { Config } from '../utils';
 import { orderProperties } from '../utils';
 import { formatProperties } from '../utils';
+import { getConfig } from './getConfig';
 
 function  getFileInfo(filePath: string): Promise<string | null> {
     return new Promise((resolve, reject) => {
@@ -26,19 +27,12 @@ function  getFileInfo(filePath: string): Promise<string | null> {
 
                         resolve(data);
                     });
+                } else {
+                    resolve(null)
                 }
             }
         });
     });
-}
-
-const config:Config = {
-    orderList: ["display"],
-    changeOnSave: true,
-    showErrorMessages: false,
-    autoFormat: true,
-    tabSize: 4,
-    spaceBeforeClass: true,
 }
 
 async function setPage(filePath:string, textToWrite: string) {
@@ -49,7 +43,7 @@ async function setPage(filePath:string, textToWrite: string) {
     });
 }
 
-async function parseDirectory() {
+async function parseDirectory(config: Config) {
     const directoryPath: string = './'; // 현재 디렉토리
 
     try {
@@ -78,5 +72,7 @@ async function parseDirectory() {
 
 export async function run() {
     // Get config
-    await parseDirectory();
+    const config: Config = getConfig()
+
+    await parseDirectory(config);
 }
