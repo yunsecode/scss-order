@@ -47,7 +47,6 @@ SCSS-Order is a dedicated property order formatter for SCSS. It aims to ensure c
 .class1 {height: 100px
             display: flex;width: 20px;
         font-size: 12px;
-
 .class2 {font-size: 12px;width: 20px;
         height: 100px
         display: flex;}}
