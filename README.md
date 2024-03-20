@@ -20,9 +20,11 @@
 </p>
 
 # Intro
+
 SCSS-Order is a dedicated property order formatter for SCSS. It aims to ensure consistency across projects by analyzing your SCSS code and reordering properties according to a predefined or customizable set of rules. This tool facilitates a uniform property sequence, making it easier for all users to follow a consistent style and improve code readability. By structuring properties in a predictable order, SCSS-Order helps in maintaining a clean and organized codebase, which is especially beneficial in collaborative environments.
 
 ### Input 1
+
 ```scss
 .class1 {
     height: 100px;
@@ -40,6 +42,7 @@ SCSS-Order is a dedicated property order formatter for SCSS. It aims to ensure c
 ```
 
 ### Input 2
+
 ```scss
 .class1 {height: 100px
             display: flex;width: 20px;
@@ -51,6 +54,7 @@ SCSS-Order is a dedicated property order formatter for SCSS. It aims to ensure c
 ```
 
 ### Output
+
 ```scss
 .class1 {
     width: 20px;
