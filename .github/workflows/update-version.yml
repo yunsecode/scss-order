@@ -3,7 +3,7 @@ name: Merge to Prod
 on:
   pull_request:
     branches:
-      - develop
+      - '*'
 
 jobs:
   merge_to_prod:
