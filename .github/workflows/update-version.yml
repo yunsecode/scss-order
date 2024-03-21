@@ -11,14 +11,33 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Setup Git Config
+      - name: Get Last Commit Author
+        id: get_author
+        run: echo "::set-output name=author::$(git log -1 --pretty=format:'%an')"
+
+      - name: Determine Version Bump Type
+        id: determine_bump_type
         run: |
-          git config user.name "${{ secrets.YUNSECODE_BOT_NAME }}"
-          git config user.email "${{ secrets.YUNSECODE_BOT_EMAIL }}"
+          last_commit_message=$(git log -1 --pretty=format:'%s')
+          if [[ "${{ steps.get_author.outputs.author }}" != "yunsecodeBot" ]]; then
+            if [[ "${last_commit_message}" == feat* ]]; then
+              echo "minor"
+            else
+              echo "patch"
+            fi
+          else
+            echo "no_bump"
+          fi
+        shell: bash
 
       - name: Version Bump and Push
+        if: steps.determine_bump_type.outputs.bump_type != 'no_bump'
         run: |
-          npm version patch
+          if [[ "${{ steps.determine_bump_type.outputs.bump_type }}" == "minor" ]]; then
+            npm version minor
+          else
+            npm version patch
+          fi
           git push --follow-tags
         env:
           GITHUB_TOKEN: ${{ secrets.YUNSECODE_BOT_TOKEN }}
