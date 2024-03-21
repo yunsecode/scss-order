@@ -4,6 +4,9 @@
 
 <p align="center">
     <!-- Badge for Github Actions Build Status for Prod -->
+    <a href="https://github.com/yunse0909/scss-order/actions/workflows/nodejs.yml">
+        <img alt="Github Actions Build Status" src="https://img.shields.io/github/actions/workflow/status/yunse0909/scss-order/nodejs.yml?label=Prod&style=flat-square"></a>
+    </a>
     <!-- Badge for Github Actions Build Status for Dev -->
     <!-- Badge for repo lint -->
     <!-- Badge for test coverage -->
