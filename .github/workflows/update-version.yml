@@ -39,7 +39,7 @@ jobs:
 
           git push --follow-tags
 
-      - name: Bump Patch Version
+      - name: Update Version
         if: startsWith(steps.check-branch.outputs.branch_name, 'chore/')
         run: |
           echo "Bumping patch version..."
