@@ -40,10 +40,11 @@ jobs:
         run: |
           if [[ "${{ steps.determine_bump_type.outputs.bump_type }}" == "minor" ]]; then
             npm version minor
+          git push --follow-tags
           else
             npm version patch
-          fi
           git push --follow-tags
+          fi
         env:
           GITHUB_TOKEN: ${{ secrets.YUNSECODE_BOT_TOKEN }}
 
