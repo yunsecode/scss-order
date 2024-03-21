@@ -46,3 +46,14 @@ jobs:
           git push --follow-tags
         env:
           GITHUB_TOKEN: ${{ secrets.YUNSECODE_BOT_TOKEN }}
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build
+        run: npm run build
+
+      - name: Publish to npm
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
