@@ -9,9 +9,17 @@ jobs:
   run-on-merge:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
-      - name: Print Environment Information
+      - name: Setup Git Config
         run: |
-          echo "Merge into prod was successful!"
+          git config user.name "${{ secrets.GIT_USER_NAME }}"
+          git config user.email "${{ secrets.GIT_USER_EMAIL }}"
+
+      - name: Version Bump and Push
+        run: |
+          # 예: 버전을 올리고 커밋하는 명령어 실행
+          npm version patch -m "Upgrade to %s [skip ci]"
+          git push --follow-tags
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
