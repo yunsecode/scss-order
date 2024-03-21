@@ -16,7 +16,7 @@ jobs:
           git config user.name "${{ secrets.YUNSECODE_BOT_NAME }}"
           git config user.email "${{ secrets.YUNSECODE_BOT_EMAIL }}"
 
-      - name: Version Bump and Push
+      - name: Version change
         run: |
           npm version patch
           git push --follow-tags
