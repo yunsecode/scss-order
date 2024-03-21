@@ -2,9 +2,9 @@ name: Dev test
 
 on:
   push:
-    branches: [ feature/*, chore/*, fix/* ]
+    branches: [ feature/*, chore/*, fix/*, ci/* ]
   pull_request:
-    branches: [ feature/*, chore/*, fix/* ]
+    branches: [ feature/*, chore/*, fix/*, ci/* ]
 
 jobs:
   build:
