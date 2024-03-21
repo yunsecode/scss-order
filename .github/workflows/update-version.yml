@@ -13,8 +13,8 @@ jobs:
 
       - name: Setup Git Config
         run: |
-          git config user.name "${{ secrets.GIT_USER_NAME }}"
-          git config user.email "${{ secrets.GIT_USER_EMAIL }}"
+          git config user.name "${{ secrets.YUNSECODE_BOT_NAME }}"
+          git config user.email "${{ secrets.YUNSECODE_BOT_EMAIL }}"
 
       - name: Version Bump and Push
         run: |
