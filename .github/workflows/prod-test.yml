@@ -1,4 +1,4 @@
-name: TypeScript CI
+name: Prod Test
 
 on:
   push:
