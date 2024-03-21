@@ -1,8 +1,10 @@
-name: Prod Test
+name: TypeScript CI
 
 on:
   push:
-    branches: [ prod ]
+    branches: [ prod, develop ]
+  pull_request:
+    branches: [ prod, develop ]
 
 jobs:
   build:

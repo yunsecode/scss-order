@@ -1,10 +1,10 @@
-name: Dev test
+name: TypeScript CI
 
 on:
   push:
-    branches: [ feature/*, chore/*, fix/* ]
+    branches: [ prod, develop ]
   pull_request:
-    branches: [ feature/*, chore/*, fix/* ]
+    branches: [ prod, develop ]
 
 jobs:
   build:
