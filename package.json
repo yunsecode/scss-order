@@ -4,7 +4,8 @@
   "description": "To order scss properties",
   "main": "dist/src/utils/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
   },
   "bin": {
     "scss-order": "./dist/bin/index.js"
