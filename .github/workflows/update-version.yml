@@ -1,4 +1,4 @@
-name: Post-Merge Workflow
+name: Update Version
 
 on:
   push:
@@ -12,6 +12,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Print Environment Information
+      - name: Update Scss Order version
         run: |
-          echo "Merge into prod was successful!"
+          run: npm version patch --no-git-tag-version
+
