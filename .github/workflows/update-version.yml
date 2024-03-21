@@ -1,47 +1,15 @@
-name: After PR Merge to Prod
+name: Merge to Prod
 
 on:
-  pull_request_target:
-    types: [closed]
+  pull_request:
     branches:
-      - prod
+      - develop
 
 jobs:
-  version-bump:
+  merge_to_prod:
+    if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged && github.event.pull_request.base.ref == 'prod'
     runs-on: ubuntu-latest
-    if: github.event.pull_request.merged == true
+
     steps:
-      - uses: actions/checkout@v3
-        with:
-          ref: 'prod'
-          fetch-depth: 0
-
-      - name: Setup Git Config
-        run: |
-          git config user.name "${{ secrets.YUNSECODE_BOT_EMAIL }}"
-          git config user.email "${{ secrets.YUNSECODE_BOT_NAME }}"
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-
-      - name: Check Merged Branch Name
-        id: check-branch
-        run: |
-          echo ::set-output name=branch_name::${{ github.event.pull_request.head.ref }}
-
-      - name: Bump Minor Version
-        if: startsWith(steps.check-branch.outputs.branch_name, 'feature/')
-        run: |
-          echo "Bumping minor version..."
-          npm version minor
-
-          git push --follow-tags
-
-      - name: Update Version
-        if: startsWith(steps.check-branch.outputs.branch_name, 'chore/')
-        run: |
-          echo "Bumping patch version..."
-          npm version patch
-          git push --follow-tags
+    - name: Echo message
+      run: echo "PR merged to prod branch"
