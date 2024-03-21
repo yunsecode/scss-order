@@ -21,4 +21,4 @@ jobs:
           npm version patch
           git push --follow-tags
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.YUNSECODE_BOT_TOKEN }}
