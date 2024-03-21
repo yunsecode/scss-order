@@ -2,8 +2,7 @@ name: Merge to Prod
 
 on:
   pull_request:
-    branches:
-      - '*'
+    types: [closed]
 
 jobs:
   merge_to_prod:
