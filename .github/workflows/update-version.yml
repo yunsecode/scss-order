@@ -1,14 +1,16 @@
 name: Merge to Prod
 
 on:
-  pull_request:
-    types: [closed]
+  push:
+    branches:
+      - prod
 
 jobs:
   merge_to_prod:
-    if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged && github.event.pull_request.base.ref == 'prod'
+    if: github.actor != 'yunsecode'
     runs-on: ubuntu-latest
 
     steps:
-    - name: Echo message
-      run: echo "PR merged to prod branch"
+    - name: Check last committer
+      run: |
+        echo "PR merged to prod branch"
