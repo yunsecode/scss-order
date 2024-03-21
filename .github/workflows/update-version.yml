@@ -1,4 +1,4 @@
-name: Post-Merge Workflow
+name: Merge to Prod
 
 on:
   push:
@@ -6,12 +6,11 @@ on:
       - prod
 
 jobs:
-  run-on-merge:
+  merge_to_prod:
+    if: github.actor != 'yunsecode'
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
 
-      - name: Print Environment Information
-        run: |
-          echo "Merge into prod was successful!"
+    steps:
+    - name: Check last committer
+      run: |
+        echo "PR merged to prod branch"
