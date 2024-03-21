@@ -11,6 +11,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: Setup Git Config
+        run: |
+          git config user.name "${{ secrets.YUNSECODE_BOT_NAME }}"
+          git config user.email "${{ secrets.YUNSECODE_BOT_EMAIL }}"
+
       - name: Get Last Commit Author
         id: get_author
         run: echo "::set-output name=author::$(git log -1 --pretty=format:'%an')"
