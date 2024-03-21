@@ -1,18 +1,47 @@
-name: Update Version
+name: After PR Merge to Prod
 
 on:
-  push:
+  pull_request_target:
+    types: [closed]
     branches:
       - prod
 
 jobs:
-  run-on-merge:
+  version-bump:
     runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+        with:
+          ref: 'prod'
+          fetch-depth: 0
 
-      - name: Update Scss Order version
+      - name: Setup Git Config
         run: |
-          run: npm version patch --no-git-tag-version
+          git config user.name "${{ secrets.YUNSECODE_BOT_EMAIL }}"
+          git config user.email "${{ secrets.YUNSECODE_BOT_NAME }}"
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Check Merged Branch Name
+        id: check-branch
+        run: |
+          echo ::set-output name=branch_name::${{ github.event.pull_request.head.ref }}
+
+      - name: Bump Minor Version
+        if: startsWith(steps.check-branch.outputs.branch_name, 'feature/')
+        run: |
+          echo "Bumping minor version..."
+          npm version minor
+
+          git push --follow-tags
+
+      - name: Bump Patch Version
+        if: startsWith(steps.check-branch.outputs.branch_name, 'chore/')
+        run: |
+          echo "Bumping patch version..."
+          npm version patch
+          git push --follow-tags
