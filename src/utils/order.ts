@@ -19,9 +19,10 @@ function reOrderArray(orderListArr: string[], text: string[], startCheck: number
         }
     });
 
-    const finalProperties = reorderedProperties.concat(newArr);
+    const finalProperties: string[] = reorderedProperties.concat(newArr);
 
-    let x = 0;
+    let x: number = 0;
+
     for (let i = startCheck + 1; i < endCheck; i++) {
         text[i] = finalProperties[x];
         x++;
@@ -29,19 +30,19 @@ function reOrderArray(orderListArr: string[], text: string[], startCheck: number
 }
 
 export default function orderProperties(config: Config, filestring: string): string[] {
-    const splitTable = splitTextWithDelimiter(filestring);
-    const orderListArr = setOrderArray(config);
+    const splitTable: string[] = splitTextWithDelimiter(filestring);
+    const orderListArr: string[] = setOrderArray(config);
 
-    let i = 0;
+    let i: number = 0;
 
     while (i < splitTable.length) {
-        let next = i + 1;
-        let startCheck = 0;
-        let endCheck = 0;
+        let next: number = i + 1;
+        let startCheck: number = 0;
+        let endCheck: number = 0;
 
-        // Check between where do I have to sort
         if (splitTable[i].includes('{')) {
             startCheck = i;
+
             while (next < splitTable.length) {
                 if (splitTable[next].includes('{') || splitTable[next].includes('}')) {
                     endCheck = next;
@@ -52,7 +53,6 @@ export default function orderProperties(config: Config, filestring: string): str
             }
         }
 
-        // Sort
         if (endCheck - startCheck > 2) {
             reOrderArray(orderListArr, splitTable, startCheck, endCheck);
         }

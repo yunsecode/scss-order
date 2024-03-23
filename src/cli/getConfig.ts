@@ -9,15 +9,19 @@ export function getConfig(rawArguments = process.argv.slice(2)): Config {
         spaceBeforeClass: true,
     };
 
-    const configIndex = rawArguments.indexOf('--config');
-    const configFile = configIndex !== -1 ? rawArguments[configIndex + 1] : null;
+    const configIndex: number = rawArguments.indexOf('--config');
+    if (configIndex === -1) {
+        return config;
+    }
+    const configFile: string = rawArguments[configIndex + 1];
 
     fs.readFile(configFile, 'utf8', (err: NodeJS.ErrnoException | null, data: string) => {
         if (err) {
             // TODO: do smth
         }
 
-        const configFileData = JSON.parse(data);
+        // check if there is an error here
+        const configFileData: Config = JSON.parse(data);
 
         if (configFileData.orderList) {
             config.orderList = configFileData.orderList;

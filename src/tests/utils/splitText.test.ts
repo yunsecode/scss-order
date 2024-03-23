@@ -4,6 +4,8 @@ import { splitTextWithDelimiter } from '../../utils/splitText';
 // ====================== Test OrderArray ======================
 // =============================================================
 
+// TODO: if no text
+
 // 1 property in line
 test('splitTextWithDelimiter 1 property in line', () => {
     const text: string ='width: 100px;\nheight: 100px';

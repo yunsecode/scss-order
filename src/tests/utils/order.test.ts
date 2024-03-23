@@ -11,6 +11,7 @@ test('orderProperties order properties with ', () => {
     const config: Config = {
         orderList: ['display', 'width'],
         tabSize: 1,
+        spaceBeforeClass: false
     };
 
     const filestring: string =
@@ -36,6 +37,7 @@ test('orderProperties order properties with ', () => {
     const config: Config = {
         orderList: [],
         tabSize: 1,
+        spaceBeforeClass: false
     };
 
     const filestring: string =
@@ -61,6 +63,7 @@ test('orderProperties order properties with ', () => {
     const config: Config = {
         orderList: [],
         tabSize: 1,
+        spaceBeforeClass: false
     };
 
     const filestring: string =

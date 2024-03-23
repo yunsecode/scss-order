@@ -25,6 +25,7 @@
       "@typescript-eslint/explicit-function-return-type": ["error", { "allowExpressions": true }], // 함수의 반환 타입 명시 강제
       "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }], // 사용되지 않는 변수 방지
       "@typescript-eslint/no-non-null-assertion": "error", // non-null 단언 (`!`) 사용 방지
-      "@typescript-eslint/no-inferrable-types": "off" // 타입 유추 가능한 경우 명시적 타입 지정 방지
+      "@typescript-eslint/no-inferrable-types": "off", // 타입 유추 가능한 경우 명시적 타입 지정 방지
+    "@typescript-eslint/explicit-module-boundary-types": "error"
     }
   }

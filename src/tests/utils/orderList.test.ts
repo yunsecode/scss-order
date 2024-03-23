@@ -6,11 +6,14 @@ import { Config } from '../../interfaces/config';
 // ====================== Test OrderArray ======================
 // =============================================================
 
+// TODO: not existed properties
+
 // Config order List
 test('setOrderArray with orderList in config ', () => {
     const config: Config = {
         orderList: ['display', 'width'],
         tabSize: 1,
+        spaceBeforeClass: false
     };
 
     const expectedResult = [
@@ -57,6 +60,7 @@ test('setOrderArray with empty orderList', () => {
     const config: Config = {
         orderList: [],
         tabSize: 1,
+        spaceBeforeClass: false
     };
 
     const expectedResult = [
