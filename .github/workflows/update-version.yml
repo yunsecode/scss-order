@@ -27,12 +27,12 @@ jobs:
           echo "Last commit message: $last_commit_message"
           if [ "${{ steps.get_author.outputs.author }}" != "yunsecodeBot" ]; then
             if [[ "$last_commit_message" =~ ^[fF]eat ]]; then
-              echo "minor"
+              echo "::set-output name=bump_type::minor"
             else
-              echo "patch"
+              echo "::set-output name=bump_type::patch"
             fi
           else
-            echo "no_bump"
+            echo "::set-output name=bump_type::no_bump"
           fi
         shell: bash
 
