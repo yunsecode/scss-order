@@ -20,7 +20,7 @@ jobs:
         id: get_author
         run: echo "::set-output name=author::$(git log -1 --pretty=format:'%an')"
 
-      - name: Determine Version Bump Type
+      - name: Determine Version Type
         id: determine_bump_type
         run: |
           last_commit_message=$(git log -1 --pretty=format:'%s')
