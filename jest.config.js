@@ -4,4 +4,6 @@ module.exports = {
     testMatch: [
         '**/src/tests/**/*.(test|spec).(ts|tsx)'
     ],
+    collectCoverage: true,
+    coverageReporters: ['json', 'lcov', 'text', 'clover'],
 };

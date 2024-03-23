@@ -5,11 +5,16 @@
 <p align="center">
     <!-- Badge for Github Actions Build Status for Prod -->
     <a href="https://github.com/yunse0909/scss-order/actions/workflows/nodejs.yml">
-        <img alt="Github Actions Build Status" src="https://img.shields.io/github/actions/workflow/status/yunse0909/scss-order/nodejs.yml?label=Prod&style=flat-square"></a>
+        <img alt="Github Actions Build Status" src="https://img.shields.io/github/actions/workflow/status/yunse0909/scss-order/prod-test.yml?label=Prod&style=flat-square"></a>
     </a>
-    <!-- Badge for Github Actions Build Status for Dev -->
     <!-- Badge for repo lint -->
+    <a href="https://github.com/yunse0909/scss-order/actions/workflows/nodejs.yml">
+        <img alt="Github Link Check" src="https://img.shields.io/github/actions/workflow/status/yunse0909/scss-order/lint.yml?label=lint&style=flat-square"></a>
+    </a>
     <!-- Badge for test coverage -->
+    <a href="https://codecov.io/gh/yunse0909/scss-order" >
+        <img src="https://codecov.io/gh/yunse0909/scss-order/graph/badge.svg?token=YB5S7Z7P27"/>
+    </a>
     <!-- Npm versioin -->
     <a href="https://www.npmjs.com/package/scss-order">
         <img alt="npm version" src="https://img.shields.io/npm/v/scss-order?style=flat-square">
