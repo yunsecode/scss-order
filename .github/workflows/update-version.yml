@@ -24,8 +24,8 @@ jobs:
         id: determine_bump_type
         run: |
           last_commit_message=$(git log -1 --pretty=format:'%s')
-          if [[ "${{ steps.get_author.outputs.author }}" != "yunsecodeBot" ]]; then
-            if [[ "${last_commit_message}" == feat* || "${last_commit_message}" == Feat* ]]; then
+          if [ "${{ steps.get_author.outputs.author }}" != "yunsecodeBot" ]; then
+            if [[ "$last_commit_message" =~ ^[fF]eat ]]; then
               echo "minor"
             else
               echo "patch"
