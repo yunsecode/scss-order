@@ -1,0 +1,27 @@
+{
+    "parser": "@typescript-eslint/parser",
+    "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/recommended"
+    ],
+    "parserOptions": {
+      "ecmaVersion": 2020,
+      "sourceType": "module"
+    },
+    "rules": {
+      "indent": ["error", 4], // 들여쓰기 2칸
+      "quotes": ["error", "single"], // 단일 따옴표 사용
+      "semi": ["error", "always"], // 항상 세미콜론 사용
+      "no-unused-vars": "error", // 사용되지 않는 변수 방지
+      "no-console": "error", // console 사용 경고
+      "no-constant-condition": ["error", { "checkLoops": false }], // 상수 조건 사용 방지
+      "no-dupe-args": "error", // 중복된 함수 인수 방지
+      "no-dupe-keys": "error", // 중복된 객체 키 방지
+      "no-empty": "error", // 비어 있는 블록 문 방지
+      "@typescript-eslint/no-explicit-any": "error", // any 타입 사용 방지
+      "@typescript-eslint/explicit-function-return-type": ["error", { "allowExpressions": true }], // 함수의 반환 타입 명시 강제
+      "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }], // 사용되지 않는 변수 방지
+      "@typescript-eslint/no-non-null-assertion": "error", // non-null 단언 (`!`) 사용 방지
+      "@typescript-eslint/no-inferrable-types": "off" // 타입 유추 가능한 경우 명시적 타입 지정 방지
+    }
+  }

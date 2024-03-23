@@ -1,4 +1,4 @@
-import { Config } from "../interfaces/config";
+import { Config } from '../interfaces/config';
 
 const defaultOrder = [
     'position',
@@ -36,7 +36,7 @@ const defaultOrder = [
     'font-size',
 ];
 
-export function setOrderArray(config: Config) {
+export function setOrderArray(config: Config): string[] {
     const new_arr: string[] = [...config.orderList];
 
     // arr1에서 중복되지 않는 요소를 필터링하여 new_arr에 추가
