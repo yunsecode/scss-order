@@ -4,9 +4,9 @@
   "description": "To order scss properties",
   "main": "dist/src/utils/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
-    "lint": "eslint . --ext .ts"
+    "lint": "eslint . --ext .ts",
+    "test": "jest"
   },
   "bin": {
     "scss-order": "./dist/bin/index.js"
@@ -26,9 +26,13 @@
   },
   "homepage": "https://github.com/yunse0909/sass-order#readme",
   "devDependencies": {
+    "@types/jest": "^29.5.12",
     "@types/node": "^20.11.28",
     "@typescript-eslint/eslint-plugin": "^7.3.1",
     "@typescript-eslint/parser": "^7.3.1",
-    "eslint": "^8.57.0"
+    "eslint": "^8.57.0",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.2",
+    "typescript": "^5.4.3"
   }
 }

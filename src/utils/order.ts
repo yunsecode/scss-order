@@ -1,4 +1,4 @@
-import { splitTextWithDelimiter } from './splitTest';
+import { splitTextWithDelimiter } from './splitText';
 import { setOrderArray } from './orderList';
 import { Config } from '../interfaces/config';
 

@@ -11,4 +11,5 @@
       "bin/**/*.ts",
       "src/**/*.ts"
     ],
+    "exclude": ["src/tests"]
 }
