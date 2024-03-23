@@ -1,4 +1,4 @@
-import { splitTextWithDelimiter } from './splitTest';
+import { splitTextWithDelimiter } from './splitText';
 import { setOrderArray } from './orderList';
 import { Config } from '../interfaces/config';
 
@@ -28,7 +28,7 @@ function reOrderArray(orderListArr: string[], text: string[], startCheck: number
     }
 }
 
-export default function orderProperties(config: Config, filestring: string): string[] {
+export function orderProperties(config: Config, filestring: string): string[] {
     const splitTable = splitTextWithDelimiter(filestring);
     const orderListArr = setOrderArray(config);
 
