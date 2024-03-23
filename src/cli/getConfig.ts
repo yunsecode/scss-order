@@ -1,23 +1,23 @@
 import * as fs from 'fs';
 
-import { Config } from "../utils";
+import { Config } from '../utils';
 
 export function getConfig(rawArguments = process.argv.slice(2)): Config {
-    let config: Config = {
+    const config: Config = {
         orderList: [],
         tabSize: 4,
         spaceBeforeClass: true,
-    }
+    };
 
     const configIndex = rawArguments.indexOf('--config');
     const configFile = configIndex !== -1 ? rawArguments[configIndex + 1] : null;
 
     fs.readFile(configFile, 'utf8', (err: NodeJS.ErrnoException | null, data: string) => {
         if (err) {
-            console.error('Error reading file.', err);
+            // TODO: do smth
         }
 
-        const configFileData = JSON.parse(data)
+        const configFileData = JSON.parse(data);
 
         if (configFileData.orderList) {
             config.orderList = configFileData.orderList;

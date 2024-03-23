@@ -1,4 +1,4 @@
-function splitPerLine(resultArr: string[], input: string) {
+function splitPerLine(resultArr: string[], input: string): void {
     let currentIndex = 0;
 
     for (let i = 0; i < input.length; i++) {

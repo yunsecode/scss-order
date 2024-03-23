@@ -7,10 +7,9 @@ import { formatProperties } from '../utils';
 import { getConfig } from './getConfig';
 
 function  getFileInfo(filePath: string): Promise<string | null> {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
         fs.stat(filePath, (error: NodeJS.ErrnoException | null, stats: fs.Stats | undefined) => {
             if (error) {
-                console.error('Error stating file.', error);
                 resolve(null);
             }
 
@@ -21,29 +20,28 @@ function  getFileInfo(filePath: string): Promise<string | null> {
                     // SCSS 파일 읽기
                     fs.readFile(filePath, 'utf8', (err: NodeJS.ErrnoException | null, data: string) => {
                         if (err) {
-                            console.error('Error reading file.', err);
                             resolve(null);
                         }
 
                         resolve(data);
                     });
                 } else {
-                    resolve(null)
+                    resolve(null);
                 }
             }
         });
     });
 }
 
-async function setPage(filePath:string, textToWrite: string) {
+async function setPage(filePath:string, textToWrite: string): Promise<void> {
     fs.writeFile(filePath, textToWrite, (err) => {
         if (err) {
-            console.error('Error writing file:', err);
+            // TODO: do smth
         }
     });
 }
 
-async function parseDirectory(config: Config) {
+async function parseDirectory(config: Config): Promise<void> {
     const directoryPath: string = './'; // 현재 디렉토리
 
     try {
@@ -57,22 +55,22 @@ async function parseDirectory(config: Config) {
             // 파일 정보 가져오기
             const fileData = await getFileInfo(filePath);
             if (!fileData) {
-                continue
+                continue;
             }
             // console.log("fileData", fileData);
-            const res = orderProperties(config, fileData)
-            const asd = formatProperties(config, res)
-            setPage(filePath, asd)
+            const res = orderProperties(config, fileData);
+            const asd = formatProperties(config, res);
+            setPage(filePath, asd);
 
         }
     } catch (err) {
-        console.error('Unable to scan directory: ' + err);
+        // TOD: smth
     }
 }
 
-export async function run() {
+export async function run(): Promise<void> {
     // Get config
-    const config: Config = getConfig()
+    const config: Config = getConfig();
 
     await parseDirectory(config);
 }

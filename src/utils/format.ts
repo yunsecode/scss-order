@@ -1,4 +1,4 @@
-import { Config } from "../interfaces/config";
+import { Config } from '../interfaces/config';
 
 function addSpacesToBeginning(input: string, count: number): string {
     if (count <= 0) {
@@ -8,7 +8,7 @@ function addSpacesToBeginning(input: string, count: number): string {
     return spaces + input;
 }
 
-export function formatProperties(config: Config, propertieslist: string[]) {
+export function formatProperties(config: Config, propertieslist: string[]): string {
     let newText = propertieslist[0];
     let tabNum = 0;
 
