@@ -1,4 +1,4 @@
-import { orderProperties } from '../../utils/order';
+import orderProperties from '../../utils/order';
 import { Config } from '../../interfaces/config';
 
 

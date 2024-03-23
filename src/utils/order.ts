@@ -28,7 +28,7 @@ function reOrderArray(orderListArr: string[], text: string[], startCheck: number
     }
 }
 
-export function orderProperties(config: Config, filestring: string): string[] {
+export default function orderProperties(config: Config, filestring: string): string[] {
     const splitTable = splitTextWithDelimiter(filestring);
     const orderListArr = setOrderArray(config);
 
