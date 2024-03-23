@@ -15,6 +15,8 @@ export function getConfig(rawArguments = process.argv.slice(2)): Config {
     fs.readFile(configFile, 'utf8', (err: NodeJS.ErrnoException | null, data: string) => {
         if (err) {
             // TODO: do smth
+            console.log('asd');
+
         }
 
         const configFileData = JSON.parse(data);
