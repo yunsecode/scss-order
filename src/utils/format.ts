@@ -32,7 +32,9 @@ export function formatProperties(config: Config, propertieslist: string[]): stri
             newText += addSpacesToBeginning(propertieslist[i], tabNum * config.tabSize);
         }
     }
-    newText += '\n';
+    if (config.insertFinalNewline) {
+        newText += '\n';
+    }
 
     return newText;
 }

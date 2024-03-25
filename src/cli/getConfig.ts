@@ -9,6 +9,7 @@ export function getConfig(rawArguments = process.argv.slice(2)): Config {
         orderList: [],
         tabSize: 4,
         spaceBeforeClass: true,
+        insertFinalNewline: true,
     };
 
     const configIndex: number = rawArguments.indexOf('--config');
@@ -40,6 +41,9 @@ export function getConfig(rawArguments = process.argv.slice(2)): Config {
         }
         if (typeof tmpConfigFileData.spaceBeforeClass === 'boolean') {
             config.spaceBeforeClass = tmpConfigFileData.spaceBeforeClass;
+        }
+        if (typeof tmpConfigFileData.insertFinalNewline === 'boolean') {
+            config.insertFinalNewline = tmpConfigFileData.insertFinalNewline;
         }
     });
 

@@ -5,6 +5,6 @@ export interface Config {
     autoFormat?: boolean;
     tabSize: number;
     spaceBeforeClass: boolean;
+    insertFinalNewline?: boolean;
     // 그냥 클래스, :hover 이런 순서
-    // \n end of file?
 }
