@@ -4,7 +4,7 @@ function addSpacesToBeginning(input: string, count: number): string {
     if (count <= 0) {
         return input;
     }
-    const spaces = ' '.repeat(count);
+    const spaces: string = ' '.repeat(count);
     return spaces + input;
 }
 

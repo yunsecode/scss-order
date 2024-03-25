@@ -2,6 +2,8 @@ import * as fs from 'fs';
 
 import { Config } from '../utils';
 
+import { ERR_MSG_HEADER } from '../utils/constant';
+
 export function getConfig(rawArguments = process.argv.slice(2)): Config {
     const config: Config = {
         orderList: [],
@@ -9,26 +11,36 @@ export function getConfig(rawArguments = process.argv.slice(2)): Config {
         spaceBeforeClass: true,
     };
 
-    const configIndex = rawArguments.indexOf('--config');
-    const configFile = configIndex !== -1 ? rawArguments[configIndex + 1] : null;
+    const configIndex: number = rawArguments.indexOf('--config');
+    if (configIndex === -1) {
+        return config;
+    }
+    const configFile: string = rawArguments[configIndex + 1];
 
     fs.readFile(configFile, 'utf8', (err: NodeJS.ErrnoException | null, data: string) => {
         if (err) {
-            // TODO: do smth
+            console.error(ERR_MSG_HEADER, 'Given file not found');
+            return;
         }
 
-        const configFileData = JSON.parse(data);
+        let tmpConfigFileData;
 
-        if (configFileData.orderList) {
-            config.orderList = configFileData.orderList;
-        }
-        if (configFileData.tabSize) {
-            config.tabSize = configFileData.tabSize;
-        }
-        if (configFileData.spaceBeforeClass) {
-            config.spaceBeforeClass = configFileData.spaceBeforeClass;
+        try {
+            tmpConfigFileData = JSON.parse(data);
+        } catch {
+            console.error(ERR_MSG_HEADER, 'Given config file is not a JSON file');
+            return;
         }
 
+        if (tmpConfigFileData.orderList && Array.isArray(tmpConfigFileData.orderList)) {
+            config.orderList = tmpConfigFileData.orderList;
+        }
+        if (tmpConfigFileData.tabSize && typeof tmpConfigFileData.tabSize === 'number') {
+            config.tabSize = tmpConfigFileData.tabSize;
+        }
+        if (typeof tmpConfigFileData.spaceBeforeClass === 'boolean') {
+            config.spaceBeforeClass = tmpConfigFileData.spaceBeforeClass;
+        }
     });
 
     return config;

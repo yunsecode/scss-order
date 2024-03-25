@@ -8,7 +8,9 @@ import { Config } from '../../interfaces/config';
 // Tab size 1
 test('formatProperties tab size 1, 1 Depth', () => {
     const config: Config = {
+        orderList: [],
         tabSize: 1,
+        spaceBeforeClass: false
     };
 
     const propertieslist: string[] = [
@@ -31,7 +33,9 @@ test('formatProperties tab size 1, 1 Depth', () => {
 
 test('formatProperties tab size 1, 2 Depth', () => {
     const config: Config = {
+        orderList: [],
         tabSize: 1,
+        spaceBeforeClass: false
     };
 
     const propertieslist: string[] = [
@@ -59,7 +63,9 @@ test('formatProperties tab size 1, 2 Depth', () => {
 // Tab size 2
 test('formatProperties tab size 2, 1 Depth', () => {
     const config: Config = {
+        orderList: [],
         tabSize: 2,
+        spaceBeforeClass: false
     };
 
     const propertieslist: string[] = [
@@ -80,7 +86,9 @@ test('formatProperties tab size 2, 1 Depth', () => {
 
 test('formatProperties tab size 2, 2 Depth', () => {
     const config: Config = {
+        orderList: [],
         tabSize: 2,
+        spaceBeforeClass: false
     };
 
     const propertieslist: string[] = [
@@ -108,7 +116,9 @@ test('formatProperties tab size 2, 2 Depth', () => {
 // Tab size 3
 test('formatProperties tab size 3, 1 Depth', () => {
     const config: Config = {
+        orderList: [],
         tabSize: 3,
+        spaceBeforeClass: false
     };
 
     const propertieslist: string[] = [
@@ -129,7 +139,9 @@ test('formatProperties tab size 3, 1 Depth', () => {
 
 test('formatProperties tab size 3, 2 Depth', () => {
     const config: Config = {
+        orderList: [],
         tabSize: 3,
+        spaceBeforeClass: false
     };
 
     const propertieslist: string[] = [
@@ -157,7 +169,9 @@ test('formatProperties tab size 3, 2 Depth', () => {
 // Tab size 4
 test('formatProperties tab size 4, 1 Depth', () => {
     const config: Config = {
+        orderList: [],
         tabSize: 4,
+        spaceBeforeClass: false
     };
 
     const propertieslist: string[] = [
@@ -178,7 +192,9 @@ test('formatProperties tab size 4, 1 Depth', () => {
 
 test('formatProperties tab size 4, 2 Depth', () => {
     const config: Config = {
+        orderList: [],
         tabSize: 4,
+        spaceBeforeClass: false
     };
 
     const propertieslist: string[] = [
@@ -212,6 +228,7 @@ test('formatProperties tab size 4, 2 Depth', () => {
 // Space Before Class True
 test('formatProperties Space Before Class True, 1 depth', () => {
     const config: Config = {
+        orderList: [],
         tabSize: 4,
         spaceBeforeClass: true
     };
@@ -241,6 +258,7 @@ test('formatProperties Space Before Class True, 1 depth', () => {
 
 test('formatProperties Space Before Class True, 2 depths', () => {
     const config: Config = {
+        orderList: [],
         tabSize: 4,
         spaceBeforeClass: true
     };
@@ -271,6 +289,7 @@ test('formatProperties Space Before Class True, 2 depths', () => {
 // Space Before Class False
 test('formatProperties Space Before Class False, 1 depth', () => {
     const config: Config = {
+        orderList: [],
         tabSize: 4,
         spaceBeforeClass: false
     };
@@ -299,6 +318,7 @@ test('formatProperties Space Before Class False, 1 depth', () => {
 
 test('formatProperties Space Before Class True, 2 depths', () => {
     const config: Config = {
+        orderList: [],
         tabSize: 4,
         spaceBeforeClass: false
     };
