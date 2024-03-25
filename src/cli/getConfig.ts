@@ -2,6 +2,8 @@ import * as fs from 'fs';
 
 import { Config } from '../utils';
 
+import { ERR_MSG_HEADER } from '../utils/constant';
+
 export function getConfig(rawArguments = process.argv.slice(2)): Config {
     const config: Config = {
         orderList: [],
@@ -17,22 +19,28 @@ export function getConfig(rawArguments = process.argv.slice(2)): Config {
 
     fs.readFile(configFile, 'utf8', (err: NodeJS.ErrnoException | null, data: string) => {
         if (err) {
-            // TODO: do smth
+            console.error(ERR_MSG_HEADER, 'Given file not found');
+            return;
         }
 
-        // check if there is an error here
-        const configFileData: Config = JSON.parse(data);
+        let tmpConfigFileData;
 
-        if (configFileData.orderList) {
-            config.orderList = configFileData.orderList;
-        }
-        if (configFileData.tabSize) {
-            config.tabSize = configFileData.tabSize;
-        }
-        if (configFileData.spaceBeforeClass) {
-            config.spaceBeforeClass = configFileData.spaceBeforeClass;
+        try {
+            tmpConfigFileData = JSON.parse(data);
+        } catch {
+            console.error(ERR_MSG_HEADER, 'Given config file is not a JSON file');
+            return;
         }
 
+        if (tmpConfigFileData.orderList && Array.isArray(tmpConfigFileData.orderList)) {
+            config.orderList = tmpConfigFileData.orderList;
+        }
+        if (tmpConfigFileData.tabSize && typeof tmpConfigFileData.tabSize === 'number') {
+            config.tabSize = tmpConfigFileData.tabSize;
+        }
+        if (typeof tmpConfigFileData.spaceBeforeClass === 'boolean') {
+            config.spaceBeforeClass = tmpConfigFileData.spaceBeforeClass;
+        }
     });
 
     return config;
