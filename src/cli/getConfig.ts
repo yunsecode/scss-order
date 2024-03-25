@@ -9,7 +9,7 @@ export function getConfig(rawArguments = process.argv.slice(2)): Config {
         orderList: [],
         tabSize: 4,
         spaceBeforeClass: true,
-        insertFinalNewline: false,
+        insertFinalNewline: true,
     };
 
     const configIndex: number = rawArguments.indexOf('--config');
