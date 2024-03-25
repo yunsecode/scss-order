@@ -5,6 +5,7 @@ import { Config } from '../utils';
 import { orderProperties } from '../utils';
 import { formatProperties } from '../utils';
 import { getConfig } from './getConfig';
+import { ERR_MSG_HEADER } from '../utils/constant';
 
 function  getFileInfo(filePath: string): Promise<string | null> {
     return new Promise((resolve) => {
@@ -33,7 +34,7 @@ function  getFileInfo(filePath: string): Promise<string | null> {
 async function setPage(filePath:string, textToWrite: string): Promise<void> {
     fs.writeFile(filePath, textToWrite, (err) => {
         if (err) {
-            // TODO: do smth
+            throw(err);
         }
     });
 }
@@ -57,7 +58,7 @@ async function parseDirectory(config: Config): Promise<void> {
 
         }
     } catch (err) {
-        // TODO: do smth
+        console.error(ERR_MSG_HEADER, err);
     }
 }
 
