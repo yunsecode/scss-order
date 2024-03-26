@@ -83,3 +83,125 @@ SCSS-Order can be integrated into your editor to automatically organize SCSS pro
 
 ---
 <!-- Documentation in wiki? -->
+
+
+# How to use ?
+
+## Using via CLI Globally
+
+This module can be directly executed through the Command Line Interface (CLI):
+
+- You can install the module globally on your system using npm. This makes the module's commands available from anywhere in your terminal. To do so, run:
+
+```
+npm list -g
+```
+Once installed globally, you can simply run `scss-order`followed by any commands or options your module supports from any directory.
+
+- For project-specific use, you can add the module to your `package.json` file. This is particularly useful for ensuring that everyone working on the project has access to the same version of the module. To add it, run:
+
+```
+npm install --save-dev scss-order
+```
+
+Then, you can add a script in your package.json to run your module's commands. For example:
+
+```
+"scripts": {
+  "scss-order": "scss-order"
+}
+```
+This allows anyone with the project to run npm run your-command to execute your module.
+
+
+## Using as a Pre-commit Hook
+
+Additionally, this module can be utilized as a Git pre-commit hook, allowing automatic execution of specific tasks before committing. To use this feature, add the following script to your `.git/hooks/pre-commit` file:
+```
+npm run scss--rder
+```
+
+In addition, future updates to this pre-commit hook will include the capability to check whether the SCSS order is properly maintained in the repository. This enhancement aims to ensure the codebase adheres to specified styling conventions, further bolstering the quality and consistency of your source code before commits.
+
+## Execution on Save
+
+Currently, direct support for automatically executing this module when a file is saved in a code editor is not provided. However, this functionality is available through a Visual Studio Code Extension. By installing this extension, you can configure it to execute the module automatically upon file save.
+
+This extension can be installed via the Visual Studio Code Marketplace, and after installation, it allows you to use the 'execute on save' feature without additional configuration. Plans are in place to extend direct support to other editors or IDEs in the future, and updates will be communicated through our documentation.
+
+# Config File
+You can configure the following settings in your config file to tailor the scss-order tool to your project's needs:
+
+
+
+- `orderList` string[]: Specifies the order in which CSS properties should be sorted.
+`changeOnSave` boolean: Determines whether the SCSS files should be automatically formatted on save.
+- `showErrorMessages` boolean: Controls whether error messages are displayed for sorting violations.
+- `autoFormat` boolean: Enables automatic formatting of SCSS files to adhere to the specified order.
+- `tabSize` number: Sets the number of spaces to be used for indentation.
+- `spaceBeforeClass` boolean: Configures whether a space should be inserted before a class name.
+- `insertFinalNewline` boolean: Specifies whether to insert a newline at the end of the file.
+
+To apply your configuration, use the command `scss-order --config [filename]`. This command tells the scss-order tool to use the settings from the specified file, enabling you to customize its behavior according to your project's standards.
+
+example of a config file:
+```JSON
+{
+  "orderList": [
+    "height",
+    "width"
+  ],
+  "tabSize": 2,
+  "spaceBeforeClass": false,
+  "insertFinalNewline": true
+}
+```
+
+default value:
+```JSON
+{
+  "orderList": [
+    "position",
+    "z-index",
+    "top",
+    "right",
+    "bottom",
+    "left",
+    "margin",
+    "margin-top",
+    "margin-right",
+    "margin-bottom",
+    "margin-left",
+    "border",
+    "border-width",
+    "border-radius",
+    "border-color",
+    "width",
+    "height",
+    "display",
+    "flex-direction",
+    "flex-shrink",
+    "flex-wrap",
+    "justify-content",
+    "align-items",
+    "background-color",
+    "padding",
+    "padding-top",
+    "padding-right",
+    "padding-bottom",
+    "padding-left",
+    "color",
+    "font-family",
+    "font-weight",
+    "font-size",
+  ],
+  "changeOnSave": false,
+  "showErrorMessages": false,
+  "autoFormat": true,
+  "tabSize": 4,
+  "spaceBeforeClass": true,
+  "insertFinalNewline": true
+}
+```
+
+⚠️ The `changeOnSave` `showErrorMessages` `autoFormat` option is currently not in use. It's included in the configuration settings as a placeholder for future functionality that may be introduced to enhance the tool's capabilities. Please keep an eye on future updates for when this feature becomes available !
