@@ -135,7 +135,7 @@ You can configure the following settings in your config file to tailor the scss-
 
 
 - `orderList` string[]: Specifies the order in which CSS properties should be sorted.
-`changeOnSave` boolean: Determines whether the SCSS files should be automatically formatted on save.
+- `changeOnSave` boolean: Determines whether the SCSS files should be automatically formatted on save.
 - `showErrorMessages` boolean: Controls whether error messages are displayed for sorting violations.
 - `autoFormat` boolean: Enables automatic formatting of SCSS files to adhere to the specified order.
 - `tabSize` number: Sets the number of spaces to be used for indentation.
