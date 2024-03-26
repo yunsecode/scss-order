@@ -124,7 +124,7 @@ npm run scss-order -- --orderCheck=true
 This enhancement aims to ensure the codebase adheres to specified styling conventions, further bolstering the quality and consistency of your source code before commits.
 
 ## ⚠️ Execution on Save
-Currently, direct support for automatically executing this module when a file is saved in a code editor is not provided. However, this functionality is available through a Visual Studio Code Extension. By installing this extension, you can configure it to execute the module automatically upon file save.
+Currently, direct support for automatically executing this module when a file is saved in a code editor is not provided. However, this functionality is available through a [Scss-Order Visual Studio Code Extension](https://marketplace.visualstudio.com/items?itemName=yunsecode.scss-order). By installing this extension, you can configure it to execute the module automatically upon file save.
 
 This extension can be installed via the Visual Studio Code Marketplace, and after installation, it allows you to use the 'execute on save' feature without additional configuration. Plans are in place to extend direct support to other editors or IDEs in the future, and updates will be communicated through our documentation.
 
@@ -205,4 +205,4 @@ default value:
 
 If you set `"orderList": ["height", "width"]`, the orderList will going th be: `"orderList": ["height", "width", "position", "z-indez", ...]`
 
-⚠️ The `changeOnSave` `showErrorMessages` `autoFormat` option is currently not in use. It's included in the configuration settings as a placeholder for future functionality that may be introduced to enhance the tool's capabilities. Please keep an eye on future updates for when this feature becomes available !
+⚠️ The `changeOnSave` `autoFormat` option is currently not in use. It's included in the configuration settings as a placeholder for future functionality that may be introduced to enhance the tool's capabilities. Please keep an eye on future updates for when this feature becomes available !
