@@ -70,10 +70,12 @@ export async function run(args = process.argv.slice(2)): Promise<void> {
     const configIndex: number = args.indexOf('--orderCheck=true');
 
     if (configIndex !== -1) {
-        const isOrderCheckPassed = await orderCheck(config);
-        if (!isOrderCheckPassed) {
-            console.error('Order check failed.');
+        try {
+            await orderCheck(config);
+        } catch (err) {
+            console.error(`Order check failed in ${err} file.`);
             process.exit(1);
+
         }
         return;
     }

@@ -5,8 +5,6 @@ import { Config } from '../utils';
 import { splitTextWithDelimiter } from './splitText';
 import { setOrderArray } from './orderList';
 
-import { ERR_MSG_HEADER } from '../utils/constant';
-
 function  getFileInfo(filePath: string): Promise<string | null> {
     return new Promise((resolve) => {
         fs.stat(filePath, (error: NodeJS.ErrnoException | null, stats: fs.Stats | undefined) => {
@@ -62,41 +60,33 @@ function asd(filestring: string, orderList: string[]): Promise<boolean> {
 }
 
 
-async function parseDirectory(orderList: string[]): Promise<null> {
+async function parseDirectory(orderList: string[]): Promise<string | null> {
     const directoryPath: string = './';
 
-    try {
-        const files: string[] = await fs.promises.readdir(directoryPath);
+    const files: string[] = await fs.promises.readdir(directoryPath);
 
-        for (const file of files) {
-            const filePath: string = path.join(directoryPath, file);
+    for (const file of files) {
+        const filePath: string = path.join(directoryPath, file);
 
-            try {
-                const fileData: string | null = await getFileInfo(filePath);
-                if (!fileData) {
-                    continue;
-                }
-                await asd(fileData, orderList);
-            } catch (error) {
-                throw(null);
+        try {
+            const fileData: string | null = await getFileInfo(filePath);
+            if (!fileData) {
+                continue;
             }
+            await asd(fileData, orderList);
+        } catch (error) {
+            throw(filePath);
         }
-        return null;
-    } catch (err) {
-        throw(null);
     }
+    return null;
+
 }
 
 
-export async function orderCheck(config: Config): Promise<boolean> {
-    try {
-        const orderListArr: string[] = setOrderArray(config);
+export async function orderCheck(config: Config): Promise<string | null> {
+    const orderListArr: string[] = setOrderArray(config);
 
-        await parseDirectory(orderListArr);
+    await parseDirectory(orderListArr);
 
-    } catch (err) {
-        return false;
-    }
-
-    return true;
+    return null;
 }
