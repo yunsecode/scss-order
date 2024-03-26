@@ -4,7 +4,7 @@ import { Config } from '../utils';
 
 import { ERR_MSG_HEADER } from '../utils/constant';
 
-export function getConfig(rawArguments = process.argv.slice(2)): Config {
+export function getConfig(args: string[]): Config {
     const config: Config = {
         orderList: [],
         tabSize: 4,
@@ -12,11 +12,11 @@ export function getConfig(rawArguments = process.argv.slice(2)): Config {
         insertFinalNewline: true,
     };
 
-    const configIndex: number = rawArguments.indexOf('--config');
+    const configIndex: number = args.indexOf('--config');
     if (configIndex === -1) {
         return config;
     }
-    const configFile: string = rawArguments[configIndex + 1];
+    const configFile: string = args[configIndex + 1];
 
     fs.readFile(configFile, 'utf8', (err: NodeJS.ErrnoException | null, data: string) => {
         if (err) {

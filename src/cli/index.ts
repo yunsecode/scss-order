@@ -64,8 +64,8 @@ async function parseDirectory(config: Config): Promise<void> {
     }
 }
 
-export async function run(): Promise<void> {
-    const config: Config = getConfig();
+export async function run(rawArguments = process.argv.slice(2)): Promise<void> {
+    const config: Config = getConfig(rawArguments);
 
     await parseDirectory(config);
 }
