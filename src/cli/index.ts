@@ -26,6 +26,8 @@ function  getFileInfo(filePath: string): Promise<string | null> {
                 } else {
                     resolve(null);
                 }
+            } else {
+                resolve(null);
             }
         });
     });
