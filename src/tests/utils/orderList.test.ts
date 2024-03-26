@@ -13,7 +13,8 @@ test('setOrderArray with orderList in config ', () => {
     const config: Config = {
         orderList: ['display', 'width'],
         tabSize: 1,
-        spaceBeforeClass: false
+        spaceBeforeClass: false,
+        insertFinalNewline: true
     };
 
     const expectedResult = [
@@ -60,7 +61,8 @@ test('setOrderArray with empty orderList', () => {
     const config: Config = {
         orderList: [],
         tabSize: 1,
-        spaceBeforeClass: false
+        spaceBeforeClass: false,
+        insertFinalNewline: true
     };
 
     const expectedResult = [
