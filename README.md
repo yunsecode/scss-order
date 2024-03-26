@@ -118,10 +118,10 @@ This allows anyone with the project to run npm run your-command to execute your 
 
 Additionally, this module can be utilized as a Git pre-commit hook, allowing automatic execution of specific tasks before committing. To use this feature, add the following script to your `.git/hooks/pre-commit` file:
 ```
-npm run scss--rder
+npm run scss-order -- --orderCheck=true
 ```
 
-⚠️ In addition, future updates to this pre-commit hook will include the capability to check whether the SCSS order is properly maintained in the repository. This enhancement aims to ensure the codebase adheres to specified styling conventions, further bolstering the quality and consistency of your source code before commits.
+This enhancement aims to ensure the codebase adheres to specified styling conventions, further bolstering the quality and consistency of your source code before commits.
 
 ## ⚠️ Execution on Save
 Currently, direct support for automatically executing this module when a file is saved in a code editor is not provided. However, this functionality is available through a Visual Studio Code Extension. By installing this extension, you can configure it to execute the module automatically upon file save.
