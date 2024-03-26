@@ -6,6 +6,7 @@ import { orderProperties } from '../utils';
 import { formatProperties } from '../utils';
 import { getConfig } from './getConfig';
 import { ERR_MSG_HEADER } from '../utils/constant';
+import { orderCheck } from '../utils/orderCheck';
 
 function  getFileInfo(filePath: string): Promise<string | null> {
     return new Promise((resolve) => {
@@ -26,6 +27,8 @@ function  getFileInfo(filePath: string): Promise<string | null> {
                 } else {
                     resolve(null);
                 }
+            } else {
+                resolve(null);
             }
         });
     });
@@ -62,8 +65,19 @@ async function parseDirectory(config: Config): Promise<void> {
     }
 }
 
-export async function run(): Promise<void> {
-    const config: Config = getConfig();
+export async function run(args = process.argv.slice(2)): Promise<void> {
+    const config: Config = await getConfig(args);
+    const configIndex: number = args.indexOf('--orderCheck=true');
 
+    if (configIndex !== -1) {
+        try {
+            await orderCheck(config);
+        } catch (err) {
+            console.error(`Order check failed in ${err} file.`);
+            process.exit(1);
+
+        }
+        return;
+    }
     await parseDirectory(config);
 }

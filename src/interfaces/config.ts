@@ -1,10 +1,9 @@
 export interface Config {
     orderList: string[];
-    changeOnSave?: boolean;
-    showErrorMessages?: boolean;
-    autoFormat?: boolean;
     tabSize: number;
     spaceBeforeClass: boolean;
-    insertFinalNewline?: boolean;
+    insertFinalNewline: boolean;
+    changeOnSave?: boolean; // TODO:
+    autoFormat?: boolean; // TODO:
     // 그냥 클래스, :hover 이런 순서
 }
