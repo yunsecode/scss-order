@@ -94,7 +94,7 @@ This module can be directly executed through the Command Line Interface (CLI):
 You can install the module globally on your system using npm. This makes the module's commands available from anywhere in your terminal. To do so, run:
 
 ```
-npm list -g
+npm install -g scss-order
 ```
 Once installed globally, you can simply run `scss-order`followed by any commands or options your module supports from any directory.
 
