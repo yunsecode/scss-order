@@ -1,6 +1,6 @@
 {
   "name": "scss-order",
-  "version": "1.5.5",
+  "version": "1.5.6",
   "description": "To order scss properties",
   "main": "dist/src/utils/index.js",
   "scripts": {
