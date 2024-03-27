@@ -91,14 +91,15 @@ SCSS-Order can be integrated into your editor to automatically organize SCSS pro
 
 This module can be directly executed through the Command Line Interface (CLI):
 
-- You can install the module globally on your system using npm. This makes the module's commands available from anywhere in your terminal. To do so, run:
+You can install the module globally on your system using npm. This makes the module's commands available from anywhere in your terminal. To do so, run:
 
 ```
 npm list -g
 ```
 Once installed globally, you can simply run `scss-order`followed by any commands or options your module supports from any directory.
 
-- For project-specific use, you can add the module to your `package.json` file. This is particularly useful for ensuring that everyone working on the project has access to the same version of the module. To add it, run:
+## Installing Locally to Your Project
+For project-specific use, you can add the module to your `package.json` file. This is particularly useful for ensuring that everyone working on the project has access to the same version of the module. To add it, run:
 
 ```
 npm install --save-dev scss-order
