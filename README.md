@@ -5,11 +5,11 @@
 <p align="center">
     <!-- Badge for Github Actions Build Status for Prod -->
     <a href="https://github.com/yunse0909/scss-order/actions/workflows/nodejs.yml">
-        <img alt="Github Actions Build Status" src="https://img.shields.io/github/actions/workflow/status/yunse0909/scss-order/prod-test.yml?label=Prod&style=flat-square"></a>
+        <img alt="Github Actions Build Status" src="https://img.shields.io/github/actions/workflow/status/yunsecode/scss-order/prod-test.yml?label=Prod&style=flat-square"></a>
     </a>
     <!-- Badge for repo lint -->
     <a href="https://github.com/yunse0909/scss-order/actions/workflows/nodejs.yml">
-        <img alt="Github Link Check" src="https://img.shields.io/github/actions/workflow/status/yunse0909/scss-order/lint.yml?label=lint&style=flat-square">
+        <img alt="Github Link Check" src="https://img.shields.io/github/actions/workflow/status/yunsecode/scss-order/lint.yml?label=lint&style=flat-square">
     </a>
     </a>
     <!-- Badge for test coverage -->
