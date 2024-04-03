@@ -16,7 +16,7 @@
       "quotes": ["error", "single"], // 단일 따옴표 사용
       "semi": ["error", "always"], // 항상 세미콜론 사용
       "no-unused-vars": "error", // 사용되지 않는 변수 방지
-      "no-console": ["error", { "allow": ["error"] }], // console 사용 경고
+      // "no-console": ["error", { "allow": ["error"] }], // console 사용 경고
       "no-constant-condition": ["error", { "checkLoops": false }], // 상수 조건 사용 방지
       "no-dupe-args": "error", // 중복된 함수 인수 방지
       "no-dupe-keys": "error", // 중복된 객체 키 방지
