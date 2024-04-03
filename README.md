@@ -141,6 +141,7 @@ You can configure the following settings in your config file to tailor the scss-
 - `tabSize` number: Sets the number of spaces to be used for indentation.
 - `spaceBeforeClass` boolean: Configures whether a space should be inserted before a class name.
 - `insertFinalNewline` boolean: Specifies whether to insert a newline at the end of the file.
+- `showDetail` boolean: Show detail when using with CLI
 
 To apply your configuration, use the command `scss-order --config [filename]`. This command tells the scss-order tool to use the settings from the specified file, enabling you to customize its behavior according to your project's standards.
 

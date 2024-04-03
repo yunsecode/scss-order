@@ -10,6 +10,7 @@ export async function getConfig(args: string[]): Promise<Config> {
         tabSize: 4,
         spaceBeforeClass: true,
         insertFinalNewline: true,
+        showDetail: true
     };
 
     const configIndex: number = args.indexOf('--config');
@@ -41,6 +42,8 @@ export async function getConfig(args: string[]): Promise<Config> {
     if (typeof tmpConfigFileData.insertFinalNewline === 'boolean') {
         config.insertFinalNewline = tmpConfigFileData.insertFinalNewline;
     }
-
+    if (typeof tmpConfigFileData.showDetail === 'boolean') {
+        config.showDetail = tmpConfigFileData.showDetail;
+    }
     return config;
 }

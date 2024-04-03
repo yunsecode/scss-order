@@ -6,7 +6,6 @@ import { Config } from '../utils';
 import { orderProperties } from '../utils';
 import { formatProperties } from '../utils';
 import { getConfig } from './getConfig';
-import { ERR_MSG_HEADER } from '../utils/constant';
 import { orderCheck } from '../utils/orderCheck';
 
 const RUNNING_TEXT = ' RUNS ';
@@ -54,10 +53,11 @@ async function orderAllFiles(config: Config): Promise<void> {
     let orderNum = 0;
     const startTime: Date = new Date(); // 시작 시간 기록
 
-    for (const styleFilePath of styleFileList) {
-        const filePath = styleFilePath.replace(currentDirPath, '');
-        console.log(RUNNING, chalk.gray(path.dirname(filePath).slice(1) + '/') +path.basename(filePath));
-
+    if (config.showDetail) {
+        for (const styleFilePath of styleFileList) {
+            const filePath = styleFilePath.replace(currentDirPath, '');
+            console.log(RUNNING, chalk.gray(path.dirname(filePath).slice(1) + '/') +path.basename(filePath));
+        }
     }
     for (const styleFilePath of styleFileList) {
         const index = styleFileList.indexOf(styleFilePath);
@@ -68,27 +68,35 @@ async function orderAllFiles(config: Config): Promise<void> {
             const res: string[] = orderProperties(config, fileData);
             const asd: string = formatProperties(config, res);
             setPage(styleFilePath, asd);
-            process.stdout.write('\r\x1b[A'.repeat(goUp));
-            process.stdout.write(PASS);
-            process.stdout.write('\n'.repeat(goUp));
-            orderNum += 1;
+            if (config.showDetail) {
+                process.stdout.write('\r\x1b[A'.repeat(goUp));
+                process.stdout.write(PASS);
+                process.stdout.write('\n'.repeat(goUp));
+                orderNum += 1;
+            }
         } catch (error) {
-            process.stdout.write('\r\x1b[A'.repeat(goUp));
-            process.stdout.write(FAIL);
-            process.stdout.write('\n'.repeat(goUp));
+            if (config.showDetail) {
+                process.stdout.write('\r\x1b[A'.repeat(goUp));
+                process.stdout.write(FAIL);
+                process.stdout.write('\n'.repeat(goUp));
+            }
         } finally {
-            process.stdout.write('\x1b[2K');
-            drawProgressBar((index + 1) / styleFileList.length * 100);
+            if (config.showDetail) {
+                process.stdout.write('\x1b[2K');
+                drawProgressBar((index + 1) / styleFileList.length * 100);
+            }
         }
     }
-    process.stdout.write('\x1b[2K\r\n');
-    const endTime: Date = new Date(); // 종료 시간 기록
-    const elapsedTime: number = endTime.getTime() - startTime.getTime();
-    const elapsedTimeSec = Math.round((elapsedTime / 1000) * 100) / 100;
+    if (config.showDetail) {
+        process.stdout.write('\x1b[2K\r\n');
+        const endTime: Date = new Date(); // 종료 시간 기록
+        const elapsedTime: number = endTime.getTime() - startTime.getTime();
+        const elapsedTimeSec = Math.round((elapsedTime / 1000) * 100) / 100;
 
-    console.log('Order Files:\t' + chalk.green(`${orderNum} passed`) +  ` ${styleFileList.length} total`);
-    console.log('Time:\t\t' + elapsedTimeSec + 's');
-    
+        console.log('Order Files:\t' + chalk.green(`${orderNum} passed`) +  ` ${styleFileList.length} total`);
+        console.log('Time:\t\t' + elapsedTimeSec + 's');
+    }
+
     // process.stdout.write('\n');
 }
 
